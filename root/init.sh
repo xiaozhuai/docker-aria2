@@ -7,8 +7,6 @@ GID=$(id -g)
 echo "UID: ${UID}"
 echo "UID: ${GID}"
 
-ls -l /
-
 touch /config/aria2.session
 if [ ! -e /config/aria2.conf ]; then
   cp /aria2.conf.default /config/aria2.conf
