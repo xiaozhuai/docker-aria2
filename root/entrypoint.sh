@@ -5,7 +5,7 @@ UID=$(id -u)
 GID=$(id -g)
 
 echo "UID: ${UID}"
-echo "UID: ${GID}"
+echo "GID: ${GID}"
 
 touch /config/aria2.session
 if [ ! -e /config/aria2.conf ]; then
