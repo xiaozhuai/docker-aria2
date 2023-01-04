@@ -7,14 +7,10 @@ RUN set -ex \
         automake \
         libtool \
         pkgconf \
-        gcc \
-        g++ \
-        make \
+        build-base \
         cppunit-dev \
         gettext-dev \
-        gnutls-dev \
-        nettle-dev \
-        gmp-dev \
+        openssl-dev \
         libssh2-dev \
         c-ares-dev \
         expat-dev \
@@ -43,13 +39,11 @@ RUN set -xe \
     && apk add --no-cache \
         ca-certificates \
         c-ares \
-        gmp \
-        gnutls \
         libexpat \
         libgcc \
         libstdc++ \
         libssh2 \
-        nettle \
+        libssl3 \
         sqlite-libs \
         zlib \
     && chmod +x /entrypoint.sh
