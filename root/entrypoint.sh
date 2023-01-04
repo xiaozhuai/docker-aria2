@@ -1,11 +1,8 @@
 #!/bin/sh
 set -e
 
-UID=$(id -u)
-GID=$(id -g)
-
-echo "UID: ${UID}"
-echo "GID: ${GID}"
+echo "UID: $(id -u)"
+echo "GID: $(id -g)"
 
 touch /config/aria2.session
 if [ ! -e /config/aria2.conf ]; then

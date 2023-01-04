@@ -32,9 +32,6 @@ RUN set -ex \
 
 FROM alpine:latest
 
-COPY root/ /
-COPY --from=builder /tmp/aria2/src/aria2c /usr/bin/aria2c
-
 RUN set -xe \
     && apk add --no-cache \
         ca-certificates \
@@ -45,8 +42,10 @@ RUN set -xe \
         libssh2 \
         libssl3 \
         sqlite-libs \
-        zlib \
-    && chmod +x /entrypoint.sh
+        zlib
+
+COPY root/ /
+COPY --from=builder /tmp/aria2/src/aria2c /usr/bin/aria2c
 
 VOLUME /config /downloads
 
