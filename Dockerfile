@@ -41,8 +41,9 @@ RUN set -xe \
         libgcc \
         libstdc++ \
         libssh2 \
-        libssl3 \
         sqlite-libs \
+        libssl3 \
+        libcrypto3 \
         zlib
 
 COPY root/ /
