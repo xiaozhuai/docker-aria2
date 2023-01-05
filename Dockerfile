@@ -8,14 +8,14 @@ RUN set -ex \
         libtool \
         pkgconf \
         build-base \
-        cppunit-dev \
         gettext-dev \
-        openssl-dev \
-        libssh2-dev \
         c-ares-dev \
         expat-dev \
-        zlib-dev \
+        libssh2-dev \
         sqlite-dev \
+        openssl-dev \
+        jemalloc-dev \
+        zlib-dev \
     && cd /tmp \
     && git clone --depth=1 "https://github.com/aria2/aria2" \
     && cd aria2 \
@@ -28,6 +28,7 @@ RUN set -ex \
         --localstatedir=/var \
         --disable-nls \
         --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
+        --with-jemalloc \
     && make -j $(nproc) \
     && strip src/aria2c
 
@@ -36,14 +37,15 @@ FROM alpine:latest
 RUN set -xe \
     && apk add --no-cache \
         ca-certificates \
-        c-ares \
-        libexpat \
         libgcc \
         libstdc++ \
+        c-ares \
+        libexpat \
         libssh2 \
         sqlite-libs \
         libssl3 \
         libcrypto3 \
+        jemalloc \
         zlib
 
 COPY root/ /
