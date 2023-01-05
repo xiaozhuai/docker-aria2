@@ -28,7 +28,8 @@ RUN set -ex \
         --localstatedir=/var \
         --disable-nls \
         --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt \
-    && make -j $(nproc)
+    && make -j $(nproc) \
+    && strip src/aria2c
 
 FROM alpine:latest
 
