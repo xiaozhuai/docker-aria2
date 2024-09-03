@@ -34,7 +34,7 @@ RUN set -ex \
 
 FROM alpine:latest
 
-RUN set -xe \
+RUN set -ex \
     && apk add --no-cache \
         ca-certificates \
         libgcc \
